@@ -1,3 +1,5 @@
+# based on Fedora package: thanks
+
 %define prerel	rc1
 %define rel	1
 
@@ -21,6 +23,7 @@ URL:		http://bip.t1r.net
 Source0:	http://bip.t1r.net/downloads/%{distname}
 Source1:	bip.init
 Patch0:		bip-conf.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	openssl-devel
 BuildRequires:	flex
 BuildRequires:	byacc
