@@ -1,7 +1,7 @@
 # based on Fedora package: thanks
 
 %define prerel	rc1
-%define rel	1
+%define rel	2
 
 %if %{prerel}
 %define release		%mkrel 0.%{prerel}.%{rel}
