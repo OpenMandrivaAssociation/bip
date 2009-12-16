@@ -1,7 +1,7 @@
 # based on Fedora package: thanks
 
-%define prerel	rc1
-%define rel	2
+%define prerel	0
+%define rel	1
 
 %if %{prerel}
 %define release		%mkrel 0.%{prerel}.%{rel}
@@ -14,7 +14,7 @@
 %endif
 
 Name:		bip
-Version:	0.8.0
+Version:	0.8.4
 Release:	%{release}
 Summary:	IRC Bouncer (proxy)
 Group:		Networking/IRC
