@@ -44,12 +44,13 @@ iconv -f iso-8859-1 -t utf-8 -o ChangeLog{.utf8,}
 mv ChangeLog{.utf8,}
 
 %build
-%configure2_5x --enable-openssl
-make CFLAGS="%{optflags}"
+export CFLAGS="%{optflags} -DPIC -fPIC"
+%configure2_5x
+%make CFLAGS="%{optflags} -DPIC -fPIC"
 
 %install
 rm -rf %{buildroot}
-make install DESTDIR=%{buildroot}
+%makeinstall_std
 # Remove misplaced files
 rm -rf %{buildroot}%{_defaultdocdir}/bip
 mkdir -p %{buildroot}%{_sysconfdir}
