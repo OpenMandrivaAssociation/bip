@@ -14,7 +14,7 @@
 %endif
 
 Name:		bip
-Version:	0.8.7
+Version:	0.8.8
 Release:	%{release}
 Summary:	IRC Bouncer (proxy)
 Group:		Networking/IRC
