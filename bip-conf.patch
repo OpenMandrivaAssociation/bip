@@ -1,0 +1,29 @@
+--- samples/bip.conf.orig	2008-05-15 15:45:04.000000000 +0100
++++ samples/bip.conf	2008-05-15 15:48:43.000000000 +0100
+@@ -9,7 +9,7 @@
+ # be sure to set the password to the value
+ # specified in the network you want to connect to. 
+ # Port is 6667 by default.
+-port = 7778;
++#port = 7778;
+ 
+ # If you set this to true, you'll only be able to connect to bip
+ # with a SSL capable IRC client. Be sure to generate a certificate
+@@ -21,7 +21,7 @@
+ #client_side_ssl_pem = "/path/to/pemfile";
+ 
+ # Define where the pidfile should be stored. Defaults to <biphome>/bip.pid
+-#pid_file="/var/run/bip/bip.pid";
++pid_file="/var/run/bip/bip.pid";
+ 
+ # Uncomment this line to disable logging and backlogging.
+ #log = false
+@@ -37,7 +37,7 @@
+ # This is where logs go. Channel and private messages will use that
+ # configuration value as a prefix, and then log_format to determine
+ # full log filename.
+-#log_root = "/var/proxy/logs";
++log_root = "/var/log/bip";
+ 
+ # Uncomment this line to disable bip's internal messages logging.
+ # This is not recommended, a better option is to reduce log_level.
