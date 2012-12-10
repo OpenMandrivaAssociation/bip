@@ -95,3 +95,40 @@ fi
 %attr(-,bip,bip) %dir %{_localstatedir}/run/bip
 %attr(-,bip,bip) %dir %{_localstatedir}/log/bip
 
+
+
+%changelog
+* Wed May 25 2011 Adam Williamson <awilliamson@mandriva.org> 0.8.8-1mdv2011.0
++ Revision: 679057
+- new release 0.8.8
+
+* Sun Jan 23 2011 Adam Williamson <awilliamson@mandriva.org> 0.8.7-1
++ Revision: 632407
+- new release 0.8.7
+
+* Fri Sep 24 2010 Funda Wang <fwang@mandriva.org> 0.8.6-1mdv2011.0
++ Revision: 580896
+- build with fpic
+
+  + Adam Williamson <awilliamson@mandriva.org>
+    - new release 0.8.6
+
+* Wed Apr 21 2010 Funda Wang <fwang@mandriva.org> 0.8.4-2mdv2010.1
++ Revision: 537524
+- rebuild
+
+* Wed Dec 16 2009 Jérôme Brenier <incubusss@mandriva.org> 0.8.4-1mdv2010.1
++ Revision: 479598
+- new version 0.8.4
+
+* Thu Sep 10 2009 Thierry Vignaud <tv@mandriva.org> 0.8.0-0.rc1.2mdv2010.0
++ Revision: 436822
+- rebuild
+
+* Sat Feb 28 2009 Adam Williamson <awilliamson@mandriva.org> 0.8.0-0.rc1.1mdv2009.1
++ Revision: 346163
+- add buildroot
+- credit Fedora for initial package
+- import bip
+
+
