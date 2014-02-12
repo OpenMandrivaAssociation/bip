@@ -1,0 +1,56 @@
+From eb5a5e987969282ab7c1414e058ca17838d39b45 Mon Sep 17 00:00:00 2001
+From: Fedora Ninjas <bip-owner@fedoraproject.org>
+Date: Tue, 24 Jan 2012 09:56:56 -0800
+Subject: [PATCH 2/3] Throttle joins to prevent flooding
+
+---
+ src/irc.c |    6 +++++-
+ src/irc.h |    1 +
+ 2 files changed, 6 insertions(+), 1 deletions(-)
+
+diff --git a/src/irc.c b/src/irc.c
+index c890ed6..631af6f 100644
+--- a/src/irc.c
++++ b/src/irc.c
+@@ -16,6 +16,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <stdio.h>
++#include <unistd.h>
+ #include "util.h"
+ #include "irc.h"
+ #include "bip.h"
+@@ -213,6 +214,8 @@ static void irc_server_join(struct link_server *s)
+ 			WRITE_LINE1(CONN(s), NULL, "JOIN", ci->name);
+ 		else
+ 			WRITE_LINE2(CONN(s), NULL, "JOIN", ci->name, ci->key);
++
++		usleep(1000 * JOIN_THROTTLE_MSEC);
+ 	}
+ }
+ 
+@@ -951,7 +954,8 @@ static int irc_cli_mode(struct link_client *ic, struct line *line)
+ 
+ 	/* This is a wild guess and that sucks. */
+ 	if (!irc_line_elem_equals(line, 0, "MODE") ||
+-			strchr(irc_line_elem(line, 2), 'b') == NULL)
++			(strchr(irc_line_elem(line, 2), 'b') == NULL &&
++                        strchr(irc_line_elem(line, 2), 'q') == NULL))
+ 		return OK_COPY;
+ 
+ 	++ic->who_count;
+diff --git a/src/irc.h b/src/irc.h
+index 006aa08..a4964ef 100644
+--- a/src/irc.h
++++ b/src/irc.h
+@@ -28,6 +28,7 @@
+ #define P_SERV "b.i.p"
+ #define S_PING "BIPPING"
+ #define P_IRCMASK "-bip!bip@" P_SERV
++#define JOIN_THROTTLE_MSEC 300
+ 
+ struct server {
+ 	char *host;
+-- 
+1.7.6.5
+
