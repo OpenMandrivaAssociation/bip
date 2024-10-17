@@ -4,7 +4,7 @@ Version:	0.8.9
 Release:	2
 Group:		Networking/IRC
 License:	GPLv2+
-Url:		http://bip.t1r.net
+Url:		https://bip.t1r.net
 Source0:	https://projects.duckcorp.org/attachments/download/20/bip-%{version}.tar.gz
 Source2:	bip-tmpfs.conf
 Source3:	bip.service
